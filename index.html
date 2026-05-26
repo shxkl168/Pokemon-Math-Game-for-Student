@@ -1,0 +1,442 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title>Pok\'e9Math Challenge - P3</title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2113.65">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000; min-height: 14.0px}
+    span.s1 {font-kerning: none}
+    span.s2 {font: 12.0px 'Apple Color Emoji'; font-kerning: none}
+    span.s3 {font: 12.0px Symbol; font-kerning: none}
+    span.s4 {font: 12.0px 'Zapf Dingbats'; font-kerning: none}
+  </style>
+</head>
+<body>
+<p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
+<p class="p1"><span class="s1">&lt;html lang="en"&gt;</span></p>
+<p class="p1"><span class="s1">&lt;head&gt;</span></p>
+<p class="p1"><span class="s1">&lt;meta charset="UTF-8"&gt;</span></p>
+<p class="p1"><span class="s1">&lt;title&gt;PokéMath Challenge - P3&lt;/title&gt;</span></p>
+<p class="p1"><span class="s1">&lt;style&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>body {font-family: Arial, sans-serif; background-color: #000000; color: #ffffff; margin:0; padding:0; text-align:center;}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.container {max-width:900px; margin:0 auto; background:#1a1a1a; min-height:100vh;}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>header {background:linear-gradient(to right,#ff00aa,#00aaff); padding:15px; font-size:28px; font-weight:bold; position:relative;}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.profile-btn {position:absolute; top:15px; right:20px; background:#ffd700; color:#000; padding:8px 16px; border-radius:20px; cursor:pointer; font-weight:bold;}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.screen {padding:30px;}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>button {background:#00ffcc; color:#000; border:none; padding:14px 30px; margin:10px; border-radius:8px; font-size:18px; font-weight:bold; cursor:pointer; transition:all 0.1s;}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>button:active {transform:scale(0.92); background:#00ccaa;}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>button:hover {background:#00ccaa; transform:scale(1.05);}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>input[type="text"], input[type="number"] {background:#333; color:#fff; border:2px solid #00ffcc; padding:12px; font-size:20px; border-radius:8px; width:320px; text-align:center;}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.pokemon-grid img {width:130px; margin:15px; cursor:pointer; border:4px solid #333; border-radius:15px; transition:0.3s;}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.pokemon-grid img.selected {border-color:#00ffcc; transform:scale(1.12);}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.question {font-size:34px; background:#222; padding:30px; border-radius:15px; margin:25px 0; min-height:90px; border:2px solid #00ffcc;}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.timer {font-size:36px; color:#ff0066; font-weight:bold; margin:15px 0;}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.card {background:linear-gradient(145deg,#222,#444); border:3px solid #ffd700; border-radius:15px; padding:12px; margin:12px; display:inline-block; width:200px; box-shadow:0 5px 15px rgba(255,215,0,0.3);}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.card img {width:100%; border-radius:8px;}</span></p>
+<p class="p1"><span class="s1">&lt;/style&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/head&gt;</span></p>
+<p class="p1"><span class="s1">&lt;body&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">&lt;div class="container"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;header&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s2">🎮</span><span class="s1"> POKÉMATH CHALLENGE </span><span class="s2">🎮</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="profile-btn" onclick="showProfile()"&gt;</span><span class="s2">👤</span><span class="s1"> Profile&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/header&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div id="screen1" class="screen"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;h2&gt;P3 Math Adventure&lt;/h2&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p&gt;&lt;strong&gt;Trainer Name:&lt;/strong&gt;&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;input type="text" id="playerName" placeholder="Enter your name"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p&gt;&lt;strong&gt;Choose Your Pokémon Partner:&lt;/strong&gt;&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="pokemon-grid" id="charSelect"&gt;&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;button onclick="goToTopic()"&gt;Continue </span><span class="s3">→</span><span class="s1">&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div id="screen2" class="screen" style="display:none;"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;h1&gt;Hello, &lt;span id="displayName"&gt;&lt;/span&gt;!&lt;/h1&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p&gt;Partner: &lt;span id="displayChar"&gt;&lt;/span&gt;&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;h2&gt;Select Topic&lt;/h2&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;button onclick="setTopic('add')"&gt;</span><span class="s2">➕</span><span class="s1"> Addition&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;button onclick="setTopic('sub')"&gt;</span><span class="s2">➖</span><span class="s1"> Subtraction&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;button onclick="setTopic('mul')"&gt;</span><span class="s4">✖</span><span class="s1"> Multiplication&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;button onclick="setTopic('div')"&gt;</span><span class="s2">➗</span><span class="s1"> Division&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;button onclick="setTopic('conv')"&gt;</span><span class="s2">📏</span><span class="s1"> Conversion&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;h2&gt;Select Difficulty&lt;/h2&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;button onclick="startRound(1)"&gt;Easy&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;button onclick="startRound(2)"&gt;Medium&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;button onclick="startRound(3)"&gt;Hard&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;button onclick="startRound(4)"&gt;Very Hard&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div id="gameScreen" class="screen" style="display:none;"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="timer"&gt;</span><span class="s2">⏰</span><span class="s1"> Time Left: &lt;span id="timeLeft"&gt;120&lt;/span&gt;s&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;h2 id="topicLevel"&gt;&lt;/h2&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="question" id="questionArea"&gt;&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;input type="number" id="userAnswer" placeholder="Your Answer" autofocus&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;br&gt;&lt;br&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;button onclick="submitAnswer()"&gt;Submit Answer&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p&gt;Question &lt;span id="progress"&gt;1&lt;/span&gt;/5 | Correct: &lt;span id="correct"&gt;0&lt;/span&gt;&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div id="resultScreen" class="screen" style="display:none;"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;h1 id="resultTitle"&gt;&lt;/h1&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p id="resultMsg"&gt;&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div id="rewardArea"&gt;&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;button onclick="showProfile()"&gt;</span><span class="s2">📦</span><span class="s1"> View Card Box&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;button onclick="backToMenu()"&gt;Play Again&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div id="profileScreen" class="screen" style="display:none;"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;h1&gt;</span><span class="s2">👤</span><span class="s1"> &lt;span id="profileName"&gt;&lt;/span&gt;'s Nihil Zero Collection&lt;/h1&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p&gt;Total Cards: &lt;span id="totalCards"&gt;0&lt;/span&gt;&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div id="cardsContainer"&gt;&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;button onclick="backToMenu()"&gt;Back to Menu&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">&lt;script&gt;</span></p>
+<p class="p1"><span class="s1">// Player Data</span></p>
+<p class="p1"><span class="s1">let player = { name: "", character: null, cards: [] };</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">const pokemons = [</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{name:"Pikachu", img:"https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{name:"Charmander", img:"https://assets.pokemon.com/assets/cms2/img/pokedex/full/004.png"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{name:"Bulbasaur", img:"https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{name:"Squirtle", img:"https://assets.pokemon.com/assets/cms2/img/pokedex/full/007.png"}</span></p>
+<p class="p1"><span class="s1">];</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">// Full 117 Cards Array with Local Images</span></p>
+<p class="p1"><span class="s1">const nihilZeroCards = [</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"001/NZ",name:"Spinarak",img:"image/001.webp",price:0.85,rarity:"Common"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"002/NZ",name:"Ariados",img:"image/002.webp",price:1.20,rarity:"Common"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"003/NZ",name:"Shaymin",img:"image/003.webp",price:4.20,rarity:"Uncommon"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"004/NZ",name:"Shaymin Sky",img:"image/004.webp",price:5.80,rarity:"Uncommon"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"005/NZ",name:"Rowlet",img:"image/005.webp",price:1.50,rarity:"Common"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"006/NZ",name:"Dartrix",img:"image/006.webp",price:2.80,rarity:"Uncommon"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"007/NZ",name:"Decidueye",img:"image/007.webp",price:6.50,rarity:"Rare"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"008/NZ",name:"Decidueye ex",img:"image/008.webp",price:8.90,rarity:"Rare"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"009/NZ",name:"Pikachu",img:"image/009.webp",price:3.50,rarity:"Common"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"010/NZ",name:"Raichu",img:"image/010.webp",price:7.20,rarity:"Uncommon"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"011/NZ",name:"Charizard",img:"image/011.webp",price:95.00,rarity:"Ultra Rare"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"012/NZ",name:"Charizard ex",img:"image/012.webp",price:125.00,rarity:"Ultra Rare"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"013/NZ",name:"Eevee",img:"image/013.webp",price:6.20,rarity:"Uncommon"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"014/NZ",name:"Sylveon ex",img:"image/014.webp",price:35.00,rarity:"Rare"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"015/NZ",name:"Snorlax",img:"image/015.webp",price:12.80,rarity:"Rare"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"016/NZ",name:"Gengar",img:"image/016.webp",price:15.50,rarity:"Rare"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"017/NZ",name:"Gengar ex",img:"image/017.webp",price:28.00,rarity:"Rare"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"018/NZ",name:"Jigglypuff",img:"image/018.webp",price:4.90,rarity:"Common"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"019/NZ",name:"Greninja",img:"image/019.webp",price:18.50,rarity:"Rare"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"020/NZ",name:"Mega Zygarde ex",img:"image/020.webp",price:41.00,rarity:"Ultra Rare"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"021/NZ",name:"Meowth ex",img:"image/021.webp",price:82.00,rarity:"Secret Rare"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"022/NZ",name:"Rosa's Encouragement",img:"image/022.webp",price:104.00,rarity:"SIR"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"023/NZ",name:"Mega Starmie ex",img:"image/023.webp",price:184.00,rarity:"Ultra Rare"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"024/NZ",name:"Mew ex",img:"image/024.webp",price:68.00,rarity:"Secret Rare"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"025/NZ",name:"Clefairy",img:"image/025.webp",price:11.20,rarity:"Illustration Rare"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"026/NZ",name:"Clefable ex",img:"image/026.webp",price:55.00,rarity:"Ultra Rare"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"027/NZ",name:"Chien-Pao ex",img:"image/027.webp",price:45.00,rarity:"Rare"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"028/NZ",name:"Hawlucha",img:"image/028.webp",price:6.80,rarity:"Uncommon"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"029/NZ",name:"Talonflame",img:"image/029.webp",price:9.50,rarity:"Rare"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"030/NZ",name:"Espurr",img:"image/030.webp",price:5.50,rarity:"Common"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"031/NZ",name:"Sacred Ash",img:"image/031.webp",price:12.50,rarity:"Rare"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"032/NZ",name:"Poke Pad",img:"image/032.webp",price:8.90,rarity:"Uncommon"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"033/NZ",name:"Hisuian Zoroark",img:"image/033.webp",price:22.00,rarity:"Rare"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"034/NZ",name:"Skarmory",img:"image/034.webp",price:7.20,rarity:"Rare"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"035/NZ",name:"Vivillon",img:"image/035.webp",price:4.10,rarity:"Uncommon"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"036/NZ",name:"Pachirisu",img:"image/036.webp",price:3.80,rarity:"Common"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"037/NZ",name:"Lucario",img:"image/037.webp",price:14.50,rarity:"Rare"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"038/NZ",name:"Gardevoir ex",img:"image/038.webp",price:52.00,rarity:"Rare"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"039/NZ",name:"Gallade",img:"image/039.webp",price:11.80,rarity:"Rare"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"040/NZ",name:"Togepi",img:"image/040.webp",price:5.90,rarity:"Common"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"041/NZ",name:"Togekiss",img:"image/041.webp",price:9.20,rarity:"Rare"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"042/NZ",name:"Absol",img:"image/042.webp",price:13.50,rarity:"Rare"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"043/NZ",name:"Hisuian Samurott",img:"image/043.webp",price:16.80,rarity:"Rare"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"044/NZ",name:"Hisuian Typhlosion",img:"image/044.webp",price:19.50,rarity:"Rare"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"045/NZ",name:"Kleavor",img:"image/045.webp",price:14.20,rarity:"Rare"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"046/NZ",name:"Ursaluna",img:"image/046.webp",price:22.00,rarity:"Rare"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"047/NZ",name:"Wyrdeer",img:"image/047.webp",price:8.90,rarity:"Rare"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"048/NZ",name:"Basculegion",img:"image/048.webp",price:17.50,rarity:"Rare"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"049/NZ",name:"Enamorus",img:"image/049.webp",price:25.00,rarity:"Rare"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"050/NZ",name:"Hisuian Growlithe",img:"image/050.webp",price:6.80,rarity:"Uncommon"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"051/NZ",name:"Hisuian Arcanine",img:"image/051.webp",price:28.00,rarity:"Rare"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"052/NZ",name:"Voltorb",img:"image/052.webp",price:2.50,rarity:"Common"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"053/NZ",name:"Electrode",img:"image/053.webp",price:5.90,rarity:"Uncommon"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"054/NZ",name:"Hisuian Electrode",img:"image/054.webp",price:12.50,rarity:"Rare"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"055/NZ",name:"Cyndaquil",img:"image/055.webp",price:4.20,rarity:"Common"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"056/NZ",name:"Quilava",img:"image/056.webp",price:7.80,rarity:"Uncommon"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"057/NZ",name:"Typhlosion",img:"image/057.webp",price:18.00,rarity:"Rare"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"058/NZ",name:"Chikorita",img:"image/058.webp",price:3.90,rarity:"Common"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"059/NZ",name:"Bayleef",img:"image/059.webp",price:6.50,rarity:"Uncommon"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"060/NZ",name:"Meganium",img:"image/060.webp",price:14.80,rarity:"Rare"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"061/NZ",name:"Totodile",img:"image/061.webp",price:4.10,rarity:"Common"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"062/NZ",name:"Croconaw",img:"image/062.webp",price:7.20,rarity:"Uncommon"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"063/NZ",name:"Feraligatr",img:"image/063.webp",price:16.50,rarity:"Rare"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"064/NZ",name:"Pichu",img:"image/064.webp",price:5.90,rarity:"Common"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"065/NZ",name:"Cleffa",img:"image/065.webp",price:4.80,rarity:"Common"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"066/NZ",name:"Igglybuff",img:"image/066.webp",price:5.20,rarity:"Common"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"067/NZ",name:"Togepi",img:"image/067.webp",price:6.10,rarity:"Uncommon"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"068/NZ",name:"Mareep",img:"image/068.webp",price:3.80,rarity:"Common"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"069/NZ",name:"Flaaffy",img:"image/069.webp",price:5.90,rarity:"Uncommon"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"070/NZ",name:"Ampharos",img:"image/070.webp",price:12.50,rarity:"Rare"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"071/NZ",name:"Bellossom",img:"image/071.webp",price:8.90,rarity:"Rare"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"072/NZ",name:"Marill",img:"image/072.webp",price:4.20,rarity:"Common"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"073/NZ",name:"Azumarill",img:"image/073.webp",price:9.80,rarity:"Uncommon"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"074/NZ",name:"Sudowoodo",img:"image/074.webp",price:6.50,rarity:"Rare"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"075/NZ",name:"Politoed",img:"image/075.webp",price:11.20,rarity:"Rare"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"076/NZ",name:"Hoppip",img:"image/076.webp",price:3.90,rarity:"Common"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"077/NZ",name:"Skiploom",img:"image/077.webp",price:5.10,rarity:"Uncommon"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"078/NZ",name:"Jumpluff",img:"image/078.webp",price:8.40,rarity:"Rare"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"079/NZ",name:"Aipom",img:"image/079.webp",price:4.70,rarity:"Common"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"080/NZ",name:"Sunkern",img:"image/080.webp",price:3.20,rarity:"Common"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"081/NZ",name:"Sunflora",img:"image/081.webp",price:7.80,rarity:"Uncommon"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"082/NZ",name:"Yanma",img:"image/082.webp",price:5.60,rarity:"Common"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"083/NZ",name:"Wooper",img:"image/083.webp",price:4.30,rarity:"Common"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"084/NZ",name:"Quagsire",img:"image/084.webp",price:8.90,rarity:"Uncommon"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"085/NZ",name:"Espeon",img:"image/085.webp",price:18.50,rarity:"Rare"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"086/NZ",name:"Umbreon",img:"image/086.webp",price:22.00,rarity:"Rare"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"087/NZ",name:"Murkrow",img:"image/087.webp",price:6.10,rarity:"Common"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"088/NZ",name:"Slowking",img:"image/088.webp",price:9.80,rarity:"Rare"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"089/NZ",name:"Misdreavus",img:"image/089.webp",price:7.40,rarity:"Uncommon"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"090/NZ",name:"Unown",img:"image/090.webp",price:12.00,rarity:"Rare"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"091/NZ",name:"Wobbuffet",img:"image/091.webp",price:5.90,rarity:"Common"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"092/NZ",name:"Girafarig",img:"image/092.webp",price:6.80,rarity:"Uncommon"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"093/NZ",name:"Pineco",img:"image/093.webp",price:4.10,rarity:"Common"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"094/NZ",name:"Forretress",img:"image/094.webp",price:8.20,rarity:"Uncommon"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"095/NZ",name:"Dunsparce",img:"image/095.webp",price:5.50,rarity:"Common"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"096/NZ",name:"Gligar",img:"image/096.webp",price:9.10,rarity:"Uncommon"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"097/NZ",name:"Steelix",img:"image/097.webp",price:14.80,rarity:"Rare"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"098/NZ",name:"Snubbull",img:"image/098.webp",price:4.60,rarity:"Common"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"099/NZ",name:"Granbull",img:"image/099.webp",price:8.70,rarity:"Uncommon"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"100/NZ",name:"Qwilfish",img:"image/100.webp",price:6.40,rarity:"Common"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"101/NZ",name:"Scizor",img:"image/101.webp",price:17.50,rarity:"Rare"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"102/NZ",name:"Shuckle",img:"image/102.webp",price:5.90,rarity:"Common"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"103/NZ",name:"Heracross",img:"image/103.webp",price:11.20,rarity:"Rare"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"104/NZ",name:"Sneasel",img:"image/104.webp",price:7.80,rarity:"Uncommon"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"105/NZ",name:"Teddiursa",img:"image/105.webp",price:4.30,rarity:"Common"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"106/NZ",name:"Ursaring",img:"image/106.webp",price:13.50,rarity:"Rare"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"107/NZ",name:"Slugma",img:"image/107.webp",price:3.90,rarity:"Common"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"108/NZ",name:"Magcargo",img:"image/108.webp",price:6.80,rarity:"Uncommon"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"109/NZ",name:"Swinub",img:"image/109.webp",price:4.70,rarity:"Common"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"110/NZ",name:"Piloswine",img:"image/110.webp",price:9.10,rarity:"Uncommon"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"111/NZ",name:"Corsola",img:"image/111.webp",price:7.40,rarity:"Rare"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"112/NZ",name:"Remoraid",img:"image/112.webp",price:4.20,rarity:"Common"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"113/NZ",name:"Octillery",img:"image/113.webp",price:8.60,rarity:"Uncommon"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"114/NZ",name:"Delibird",img:"image/114.webp",price:6.90,rarity:"Rare"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"115/NZ",name:"Mantine",img:"image/115.webp",price:10.50,rarity:"Rare"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"116/NZ",name:"Skarmory",img:"image/116.webp",price:12.80,rarity:"Rare"},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>{id:"117/NZ",name:"Houndour",img:"image/117.webp",price:5.30,rarity:"Common"}</span></p>
+<p class="p1"><span class="s1">];</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">let currentTopic = "";</span></p>
+<p class="p1"><span class="s1">let currentLevel = 1;</span></p>
+<p class="p1"><span class="s1">let qAnswered = 0;</span></p>
+<p class="p1"><span class="s1">let correctCount = 0;</span></p>
+<p class="p1"><span class="s1">let timeLeft = 120;</span></p>
+<p class="p1"><span class="s1">let timer;</span></p>
+<p class="p1"><span class="s1">let currentAnswer;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">function renderCharacters() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const container = document.getElementById("charSelect");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>container.innerHTML = "";</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>pokemons.forEach((p, i) =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const img = document.createElement("img");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>img.src = p.img;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>img.onclick = () =&gt; selectPokemon(i, img);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>container.appendChild(img);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>});</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">let selectedIndex = -1;</span></p>
+<p class="p1"><span class="s1">function selectPokemon(i, element) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>document.querySelectorAll("#charSelect img").forEach(el =&gt; el.classList.remove("selected"));</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>element.classList.add("selected");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>selectedIndex = i;</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">function goToTopic() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const name = document.getElementById("playerName").value.trim();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>if (!name) return alert("Please enter your name!");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>if (selectedIndex === -1) return alert("Please choose a Pokémon!");</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>player.name = name;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>player.character = pokemons[selectedIndex];</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>document.getElementById("screen1").style.display = "none";</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>document.getElementById("screen2").style.display = "block";</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>document.getElementById("displayName").textContent = name;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>document.getElementById("displayChar").innerHTML = `${player.character.name} &lt;img src="${player.character.img}" width="60"&gt;`;</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">function setTopic(topic) { currentTopic = topic; }</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">function startRound(level) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>if (!currentTopic) return alert("Please choose a topic first!");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>currentLevel = level;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>qAnswered = 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>correctCount = 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>timeLeft = 120;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>document.getElementById("screen2").style.display = "none";</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>document.getElementById("gameScreen").style.display = "block";</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const topicName = currentTopic === 'conv' ? 'Conversion' : currentTopic.toUpperCase();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>document.getElementById("topicLevel").innerHTML = `${topicName} — ${["Easy","Medium","Hard","Very Hard"][level-1]}`;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>startTimer();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>nextQuestion();</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">function startTimer() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>clearInterval(timer);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>document.getElementById("timeLeft").textContent = timeLeft;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>timer = setInterval(() =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>timeLeft--;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>document.getElementById("timeLeft").textContent = timeLeft;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>if (timeLeft &lt;= 0) endRound();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}, 1000);</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">function generateQuestion() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>let a, b, ans;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const lvl = currentLevel;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>if (currentTopic === 'conv') {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const rand = Math.random();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>if (rand &lt; 0.4) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>a = Math.floor(Math.random() * 10) + 1;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>return {q: `${a} kg = ? g`, ans: a * 1000};</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>} else if (rand &lt; 0.7) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>a = Math.floor(Math.random() * 50) + 1;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>return {q: `${a} m = ? cm`, ans: a * 100};</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>} else {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>a = Math.floor(Math.random() * 10) + 1;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>return {q: `${a} L = ? ml`, ans: a * 1000};</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>switch(currentTopic) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>case "add":</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>if (lvl === 1) { a = Math.floor(Math.random()*20)+1; b = Math.floor(Math.random()*20)+1; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>else if (lvl === 2) { a = Math.floor(Math.random()*50)+1; b = Math.floor(Math.random()*50)+1; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>else if (lvl === 3) { a = Math.floor(Math.random()*100)+1; b = Math.floor(Math.random()*100)+1; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>else { a = Math.floor(Math.random()*200)+1; b = Math.floor(Math.random()*200)+1; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>ans = a + b;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>return {q: `${a} + ${b} = ?`, ans};</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>case "sub":</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>if (lvl === 1) { a = Math.floor(Math.random()*16)+5; b = Math.floor(Math.random()*(a-1))+1; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>else if (lvl === 2) { a = Math.floor(Math.random()*41)+10; b = Math.floor(Math.random()*(a-1))+1; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>else if (lvl === 3) { a = Math.floor(Math.random()*81)+20; b = Math.floor(Math.random()*(a-1))+1; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>else { a = Math.floor(Math.random()*151)+50; b = Math.floor(Math.random()*(a-1))+1; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>ans = a - b;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>return {q: `${a} - ${b} = ?`, ans};</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>case "mul":</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>if (lvl === 1) { a = Math.floor(Math.random()*10)+1; b = Math.floor(Math.random()*10)+1; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>else if (lvl === 2) { a = Math.floor(Math.random()*12)+1; b = Math.floor(Math.random()*12)+1; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>else if (lvl === 3) { a = Math.floor(Math.random()*15)+1; b = Math.floor(Math.random()*12)+1; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>else { a = Math.floor(Math.random()*20)+1; b = Math.floor(Math.random()*15)+1; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>ans = a * b;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>return {q: `${a} × ${b} = ?`, ans};</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>case "div":</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>if (lvl === 1) { b = Math.floor(Math.random()*10)+1; ans = Math.floor(Math.random()*10)+1; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>else if (lvl === 2) { b = Math.floor(Math.random()*12)+1; ans = Math.floor(Math.random()*12)+1; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>else if (lvl === 3) { b = Math.floor(Math.random()*15)+1; ans = Math.floor(Math.random()*20)+1; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>else { b = Math.floor(Math.random()*20)+1; ans = Math.floor(Math.random()*25)+1; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>a = b * ans;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>return {q: `${a} ÷ ${b} = ?`, ans};</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">function nextQuestion() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>if (qAnswered &gt;= 5) { endRound(); return; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const q = generateQuestion();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>currentAnswer = q.ans;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>document.getElementById("questionArea").textContent = q.q;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>document.getElementById("userAnswer").value = "";</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>document.getElementById("progress").textContent = qAnswered + 1;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>document.getElementById("correct").textContent = correctCount;</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">function submitAnswer() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const input = parseInt(document.getElementById("userAnswer").value);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>if (isNaN(input)) return alert("Please enter a number!");</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>qAnswered++;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>if (input === currentAnswer) correctCount++;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>nextQuestion();</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">function endRound() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>clearInterval(timer);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>document.getElementById("gameScreen").style.display = "none";</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>document.getElementById("resultScreen").style.display = "block";</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>if (correctCount === 5) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>// Reward Logic (Easy &lt;1, Medium 1-10, Hard 11-20, Very Hard &gt;20)</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>let filtered = nihilZeroCards.filter(card =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>if (currentLevel === 1) return card.price &lt; 1;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>if (currentLevel === 2) return card.price &gt;= 1 &amp;&amp; card.price &lt;= 10;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>if (currentLevel === 3) return card.price &gt; 10 &amp;&amp; card.price &lt;= 20;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>return card.price &gt; 20;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>});</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>if (filtered.length === 0) filtered = nihilZeroCards;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const wonCard = filtered[Math.floor(Math.random() * filtered.length)];</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>player.cards.push(wonCard);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>document.getElementById("resultTitle").innerHTML = "</span><span class="s2">🎉</span><span class="s1"> PERFECT! 5/5 Correct!";</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>document.getElementById("rewardArea").innerHTML = `</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="card"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;img src="${wonCard.img}" alt="${wonCard.name}"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;h3&gt;${wonCard.name}&lt;/h3&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;p&gt;${wonCard.id} • $${wonCard.price.toFixed(2)} • ${wonCard.rarity}&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>} else {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>document.getElementById("resultTitle").innerHTML = "Round Finished";</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>document.getElementById("resultMsg").innerHTML = `You got &lt;strong&gt;${correctCount}&lt;/strong&gt;/5 correct.&lt;br&gt;Get all 5 correct to earn a card!`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">function showProfile() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>document.querySelectorAll('.screen').forEach(s =&gt; s.style.display = 'none');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>document.getElementById("profileScreen").style.display = "block";</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>document.getElementById("profileName").textContent = player.name || "Trainer";</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>document.getElementById("totalCards").textContent = player.cards.length;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const container = document.getElementById("cardsContainer");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>container.innerHTML = "";</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>if (player.cards.length === 0) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>container.innerHTML = "&lt;p style='color:#888;'&gt;No cards yet. Get 5/5 correct!&lt;/p&gt;";</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>return;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>player.cards.forEach(card =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const div = document.createElement("div");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>div.className = "card";</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>div.innerHTML = `</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;img src="${card.img}" alt="${card.name}"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;h3&gt;${card.name}&lt;/h3&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;p&gt;${card.id} • $${card.price.toFixed(2)} • ${card.rarity}&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>container.appendChild(div);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>});</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">function backToMenu() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>document.querySelectorAll('.screen').forEach(s =&gt; s.style.display = 'none');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>document.getElementById("screen2").style.display = "block";</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">// Initialize</span></p>
+<p class="p1"><span class="s1">renderCharacters();</span></p>
+<p class="p1"><span class="s1">&lt;/script&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/body&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/html&gt;</span></p>
+</body>
+</html>
